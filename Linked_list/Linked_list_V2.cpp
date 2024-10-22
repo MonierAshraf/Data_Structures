@@ -54,7 +54,7 @@ public:
     void insert_Start(T value) {
         Node<T>* newNode = new Node<T>();
         newNode->Data = value;
-        newNode->next = head;
+        newNode->next = head;  //NULL or not NULL
         head = newNode;
     }
 
