@@ -19,9 +19,11 @@ head = NULL;
 
 bool isEmpty(){
 if(head == NULL){
+cout<<"List is empty"<<endl;
 return true;
 }
 else{
+    cout<<"List is not empty"<<endl;
 return false;
 }}
 
@@ -47,19 +49,18 @@ return counter;
 
 }
 
-bool sreach(T key){
+bool search(T key){
 Node<T>* temp = head;
 while (temp!= NULL){
     if (temp->Data==key){
     return true;
 
-}       
-else{   
+}        
 temp = temp->next;
-return false;
-}
 
-}
+
+}return false;
+
 }
 
 void instert_Start(T value){
@@ -81,7 +82,7 @@ Node<T>* newnode = new Node<T>();
 newnode->Data = newvalue;
 Node<T>* temp = head;
 
-if (sreach(item)){
+if (search(item)){
 while(temp != NULL && temp->next->Data != item){
     temp = temp->next;
 
@@ -172,27 +173,38 @@ else{
 int main() {
     linkedlist <int > lst;
 
-
-    if (lst.isEmpty()){
-        cout<<"List is empty"<<endl;
-    }
-    else{
-        
-        cout<<"List count "<< lst.count()<<endl;}
-        
-        lst.instert_Start(10);
-                lst.instert_Start(20);
-
-        lst.display();
+    lst.isEmpty();
+    lst.instert_Start(10);
+    lst.instert_Start(20);
+    lst.instert_Start(30);
+    lst.display();
+       cout<<endl;
+    cout<<"count = " <<lst.count();
         cout<<endl;
 
-        lst.append(200);
-        lst.display();
-        lst.Delete(10);
-        cout<<"List count "<< lst.count()<<endl;
-                lst.display();
-                   cout<<endl;
-          lst.Delete_all();      
+      if(  lst.search(20)){
+          cout<<"found 20 " <<endl;
+      }
+      else{
+          cout<<"not found 20"<<endl;
+      }
+      
+
+    lst.instert_before(20, 25);
+    lst.display();
+        cout<<endl;
+
+    lst.append(40);
+    lst.display();
+
+        cout<<endl;
+
+    lst.Delete(20);
+    lst.display();
+        cout<<endl;
+
+    lst.Delete_all();
+    lst.display();
 
 
     return 0;
